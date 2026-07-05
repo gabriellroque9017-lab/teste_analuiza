@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ana Luiza Val — Fotografia & Direção Criativa</title>
+<meta name="description" content="Portfólio de Ana Luiza Val — fotografia, direção criativa e artes plásticas. Rio de Janeiro.">
+<meta property="og:title" content="Ana Luiza Val — Fotografia & Direção Criativa">
+<meta property="og:description" content="Fotografia · Direção Criativa · Artes Plásticas — Rio de Janeiro">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Playfair+Display:ital,wght@1,400;1,500;1,600;1,700&family=Archivo:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+/* Ogg Italic (arquivo próprio) -> assets/fonts/Ogg-Italic.woff2 ; reserva: Playfair Display Italic */
+@font-face{font-family:"Ogg";src:url("assets/fonts/Ogg-Italic.woff2") format("woff2"),url("assets/fonts/Ogg-Italic.woff") format("woff");font-style:italic;font-weight:400;font-display:swap;}
+:root{
+  --ink:#181613; --ink-soft:#615d55; --line:#cdc8bd; --line-soft:#e4e0d6;
+  --paper:#efece3; --paper-2:#e6e0d2; --clay:#a9663f; --clay-deep:#824a2c;
+  --display:"Ogg","Playfair Display","Cormorant Garamond",Georgia,serif;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Archivo",system-ui,sans-serif;
+  --mono:"Space Mono",ui-monospace,monospace;
+  --ease:cubic-bezier(.22,.7,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:var(--sans);color:var(--ink);background:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--clay);color:#fff;}
+.mono{font-family:var(--mono);}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--clay);}
+
+/* ---------- horizontal track ---------- */
+#track{display:flex;width:400vw;height:100vh;will-change:transform;}
+.panel{width:100vw;height:100vh;position:relative;flex:0 0 100vw;background:var(--paper);}
+#p2,#p3{background:#efe0cb;}
+.panel.scroll{overflow-y:auto;overflow-x:hidden;}
+.panel.scroll::-webkit-scrollbar{width:9px;}
+.panel.scroll::-webkit-scrollbar-thumb{background:var(--line);}
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(20px,5.5vw,72px);}
+
+/* ---------- fixed menu (top-right) ---------- */
+#menu{position:fixed;top:22px;right:clamp(20px,4vw,44px);z-index:200;text-align:right;}
+#menuBtn{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  background:rgba(24,22,19,.55);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.35);
+  padding:11px 18px;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;gap:10px;}
+#menuBtn:hover{background:var(--clay);border-color:var(--clay);}
+#menuBtn .bars{display:inline-flex;flex-direction:column;gap:3px;}
+#menuBtn .bars i{width:16px;height:1.5px;background:currentColor;display:block;transition:.3s;}
+#menu.open #menuBtn .bars i:nth-child(1){transform:translateY(4.5px) rotate(45deg);}
+#menu.open #menuBtn .bars i:nth-child(2){opacity:0;}
+#menu.open #menuBtn .bars i:nth-child(3){transform:translateY(-4.5px) rotate(-45deg);}
+#menuPanel{margin-top:10px;background:rgba(24,22,19,.9);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);
+  padding:10px;display:none;min-width:210px;}
+#menu.open #menuPanel{display:block;animation:mp .35s var(--ease);}
+@keyframes mp{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
+#menuPanel a{display:flex;justify-content:space-between;align-items:center;gap:16px;
+  font-family:var(--display);font-style:italic;font-size:23px;color:#f4f1ea;padding:9px 12px;transition:.2s;border-radius:2px;}
+#menuPanel a .no{font-family:var(--mono);font-style:normal;font-size:10px;letter-spacing:.12em;color:rgba(244,241,234,.5);}
+#menuPanel a:hover{background:rgba(255,255,255,.08);color:#f0d9c4;}
+#menuPanel a.active{color:var(--clay);}
+#menuPanel a.active .no{color:var(--clay);}
+
+/* ============ PAGE 1 — HOME (coluna editorial + vídeo 75%) ============ */
+#p1{overflow:hidden;cursor:pointer;background:var(--paper);}
+#p1 .vidframe{position:absolute;right:0;top:0;bottom:0;width:75%;z-index:1;overflow:hidden;animation:vidin 1.4s var(--ease) .2s both;}
+@keyframes vidin{from{opacity:0;}to{opacity:1;}}
+#p1 .bgvid{width:100%;height:100%;object-fit:cover;display:block;background:#0d0b09;animation:panY 20s ease-in-out infinite;}
+@keyframes panY{0%,100%{object-position:50% 0%;}50%{object-position:50% 100%;}}
+#p1 .side{position:absolute;left:0;top:0;bottom:0;width:25%;z-index:2;background:var(--paper);
+  border-right:1px solid var(--line-soft);padding:clamp(22px,3vw,46px) clamp(20px,2.4vw,40px);
+  display:flex;flex-direction:column;justify-content:space-between;}
+#p1 h1{font-family:var(--display);font-style:italic;font-weight:400;color:var(--ink);
+  font-size:clamp(40px,4.6vw,72px);line-height:1.04;overflow:hidden;}
+#p1 h1 span{display:block;transform:translateY(105%);animation:up 1.15s var(--ease) .5s both;}
+@keyframes up{to{transform:translateY(0);}}
+#p1 .eyebrow{font-family:var(--sans);font-size:15.5px;letter-spacing:.02em;color:var(--ink-soft);
+  margin-top:14px;line-height:1.5;opacity:0;animation:fadeUp 1s var(--ease) 1.05s both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+#p1 .rule{width:44px;height:1px;background:var(--line);margin-top:22px;opacity:0;animation:fadeUp 1s var(--ease) 1.25s both;}
+#p1 .sidefoot{display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp 1s var(--ease) 1.5s both;}
+#p1 .sidefoot .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft);}
+#p1 .sunmini{animation:sunspin 46s linear infinite;flex:0 0 auto;}
+#p1 .enter{position:absolute;left:62.5%;top:50%;transform:translate(-50%,-50%);z-index:4;
+  color:rgba(255,255,255,.94);text-shadow:0 1px 12px rgba(0,0,0,.5);
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;
+  display:flex;align-items:center;gap:12px;border:1px solid rgba(255,255,255,.55);
+  padding:15px 26px;backdrop-filter:blur(3px);background:rgba(13,11,9,.16);
+  opacity:0;animation:enterIn 1s var(--ease) 1.7s both;transition:background .3s var(--ease),border-color .3s var(--ease);}
+@keyframes enterIn{from{opacity:0;transform:translate(-50%,-44%);}to{opacity:1;transform:translate(-50%,-50%);}}
+#p1:hover .enter{background:rgba(13,11,9,.34);border-color:rgba(255,255,255,.85);}
+#p1 .enter .ar{display:inline-block;animation:bobX 1.6s ease-in-out infinite;}
+@keyframes bobX{0%,100%{transform:translateX(0);}50%{transform:translateX(9px);}}
+@media(max-width:760px){
+  #p1 .vidframe{width:100%;}
+  #p1 .side{width:100%;bottom:auto;background:linear-gradient(rgba(13,11,9,.6),rgba(13,11,9,0));
+    border:0;padding:18px 20px 46px;}
+  #p1 h1{color:#fff;font-size:clamp(36px,10vw,54px);text-shadow:0 1px 12px rgba(0,0,0,.55);}
+  #p1 .eyebrow{color:rgba(255,255,255,.88);}
+  #p1 .rule{background:rgba(255,255,255,.5);}
+  #p1 .sidefoot{display:none;}
+  #p1 .enter{left:50%;}
+}
+/* ============ shared section head ============ */
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;border-top:1px solid var(--line);
+  padding-top:26px;margin-bottom:48px;flex-wrap:wrap;}
+.sec-head h2{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(34px,6vw,64px);line-height:.98;}
+.sec-head .lead{max-width:640px;}
+.sec-head p{color:var(--ink-soft);font-size:15.5px;margin-top:14px;}
+.sec-no{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--ink-soft);white-space:nowrap;padding-bottom:6px;}
+
+/* ============ PAGE 2 — WORK ============ */
+#p2 .inner{padding:clamp(84px,12vh,120px) 0 0;}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+.filters button{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:none;
+  border:1px solid var(--line);color:var(--ink-soft);padding:9px 18px;cursor:pointer;transition:all .25s var(--ease);}
+.filters button:hover{border-color:var(--ink);color:var(--ink);}
+.filters button.on{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+@media(max-width:940px){.grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.grid{gap:10px;}}
+.pair{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+@media(max-width:560px){.pair{gap:10px;}}
+.tile{position:relative;overflow:hidden;background:var(--paper-2);cursor:pointer;aspect-ratio:4/5;
+  opacity:0;transform:translateY(36px);transition:opacity 1s var(--ease),transform 1s var(--ease);}
+.tile.vis{opacity:1;transform:none;}
+
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease),filter .5s;filter:saturate(.97) brightness(.99);}
+.tile:hover img{transform:scale(1.045);filter:saturate(1.06) brightness(1.02);}
+
+
+.tile .cap{position:absolute;left:0;right:0;bottom:0;padding:12px 14px;color:#fff;z-index:2;pointer-events:none;}
+
+.tile .cap .t{font-family:var(--display);font-style:italic;font-size:15px;line-height:1.25;color:rgba(255,255,255,.78);text-shadow:0 1px 10px rgba(0,0,0,.65);}
+.tile .cap .c{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);margin-top:4px;}
+.empty{border:1px dashed var(--line);padding:70px 24px;text-align:center;color:var(--ink-soft);font-family:var(--mono);font-size:12px;}
+.tile .edit-ctrl{position:absolute;top:10px;right:10px;display:none;gap:6px;z-index:4;}
+body.editing .tile .edit-ctrl{display:flex;} body.editing .tile{cursor:grab;} body.editing .tile.dragging{opacity:.4;}
+body.editing .tile:hover img{transform:none;}
+.tile .edit-ctrl button,.tile .edit-ctrl select{font-family:var(--mono);font-size:10px;background:rgba(244,241,234,.96);border:1px solid var(--ink);color:var(--ink);padding:3px 7px;cursor:pointer;}
+
+/* navegação simétrica entre páginas (desktop e celular) */
+.pagenav{display:flex;justify-content:space-between;align-items:center;gap:24px;}
+.pagenav .to-prev{display:flex;flex-direction:column;align-items:flex-start;gap:14px;cursor:pointer;
+  padding:clamp(60px,10vh,120px) 0 clamp(70px,11vh,130px);}
+.to-prev .big{font-family:var(--display);font-style:italic;font-size:clamp(36px,6vw,64px);color:var(--ink);
+  display:flex;align-items:center;gap:22px;transition:color .25s;}
+.to-prev .arrowwrap{position:relative;display:inline-flex;align-items:center;}
+.to-prev .arrow{width:clamp(60px,9vw,110px);height:2px;background:var(--ink);position:relative;
+  animation:bobXr 1.6s ease-in-out infinite;transition:background .25s;}
+.to-prev .arrow::after{content:"";position:absolute;left:-2px;top:-7px;width:16px;height:16px;
+  border-top:2px solid var(--ink);border-left:2px solid var(--ink);transform:rotate(-45deg);transition:border-color .25s;}
+.to-prev:hover .big{color:var(--clay);}
+.to-prev:hover .arrow{background:var(--clay);}
+.to-prev:hover .arrow::after{border-color:var(--clay);}
+.pagenav .to-contacts{align-items:center;}
+#p4 .backmini{display:inline-flex;position:absolute;left:14px;top:50%;transform:translateY(-50%);z-index:4;
+  align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.88);background:rgba(13,11,9,.35);border:1px solid rgba(255,255,255,.42);
+  padding:9px 11px;backdrop-filter:blur(3px);cursor:pointer;transition:.25s;}
+#p4 .backmini:hover{background:rgba(13,11,9,.6);border-color:#fff;}
+#p4 .backmini .ar{display:inline-block;animation:bobXr 1.6s ease-in-out infinite;}
+
+/* end-of-page arrow -> sobre */
+.to-next{display:flex;flex-direction:column;align-items:center;gap:14px;padding:clamp(60px,10vh,120px) 0 clamp(70px,11vh,130px);cursor:pointer;}
+.to-next .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);transition:.25s;}
+.to-next:hover .lbl{color:var(--clay);}
+.to-next .big{font-family:var(--display);font-style:italic;font-size:clamp(36px,6vw,64px);color:var(--ink);display:flex;align-items:center;gap:22px;}
+.to-next .arrow{width:clamp(60px,9vw,110px);height:2px;background:var(--ink);position:relative;animation:bobX 1.6s ease-in-out infinite;}
+.to-next .arrow::after{content:"";position:absolute;right:-2px;top:-7px;width:16px;height:16px;border-top:2px solid var(--ink);border-right:2px solid var(--ink);transform:rotate(45deg);}
+.to-next:hover .arrow{background:var(--clay);}
+.to-next:hover .arrow::after{opacity:0;}
+.arrowwrap{position:relative;display:inline-flex;align-items:center;}
+.suntip{position:absolute;right:-16px;top:50%;transform:translateY(-50%) scale(.3) rotate(-40deg);opacity:0;transition:.4s var(--ease);}
+.to-next:hover .suntip,.to-next:active .suntip{opacity:1;transform:translateY(-50%) scale(1) rotate(0deg);}
+.to-next:active .arrow::after{opacity:0;}
+.suntip.sun-l{right:auto;left:-16px;transform:translateY(-50%) scale(.3) rotate(40deg);}
+.to-prev:hover .suntip,.to-prev:active .suntip{opacity:1;transform:translateY(-50%) scale(1) rotate(0deg);}
+.to-prev:hover .arrow::after,.to-prev:active .arrow::after{opacity:0;}
+.to-prev .arrow::after{transition:opacity .25s,border-color .25s;}
+.arrow::after{transition:opacity .25s;}
+
+/* ============ PAGE 3 — SOBRE MIM ============ */
+#p3 .inner{padding:clamp(84px,12vh,120px) 0 0;}
+.sobre-grid{display:grid;grid-template-columns:0.85fr 1fr;gap:clamp(34px,7vw,90px);align-items:center;}
+@media(max-width:860px){.sobre-grid{grid-template-columns:1fr;}}
+.portrait{position:relative;aspect-ratio:4/5;overflow:hidden;background:#1b1613;}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.8s var(--ease);
+  animation:kb 22s ease-in-out infinite alternate;}
+.portrait img.on{opacity:1;}
+@keyframes kb{from{transform:scale(1.02);}to{transform:scale(1.12);}}
+.portrait .shimmer{position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 40%,rgba(255,235,200,.10) 50%,transparent 60%);
+  background-size:250% 100%;animation:shim 7s linear infinite;z-index:2;}
+@keyframes shim{from{background-position:120% 0;}to{background-position:-120% 0;}}
+.portrait .mk{position:absolute;bottom:14px;left:14px;z-index:3;font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:#fff;text-transform:uppercase;}
+.sobre-body h3{font-family:var(--display);font-style:italic;font-size:clamp(30px,4.4vw,50px);font-weight:400;line-height:1;margin-bottom:24px;}
+.sobre-body p{color:var(--ink-soft);margin-bottom:18px;font-size:16px;}
+.quote{max-width:820px;margin:clamp(56px,9vh,90px) auto clamp(20px,4vh,40px);text-align:center;padding:0 20px;}
+.quote blockquote{font-family:var(--display);font-style:italic;font-size:clamp(26px,4vw,42px);line-height:1.2;color:var(--ink);}
+.quote cite{display:block;margin-top:18px;font-family:var(--mono);font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay);}
+
+/* end-of-page sun -> contatos */
+.to-contacts{display:flex;flex-direction:column;align-items:center;gap:18px;padding:clamp(40px,7vh,90px) 0 clamp(70px,11vh,130px);cursor:pointer;}
+.to-contacts .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);transition:.25s;}
+.to-contacts:hover .lbl{color:var(--clay);}
+.sunend{animation:sunspin 40s linear infinite;filter:drop-shadow(0 0 6px rgba(226,162,75,.35));}
+@keyframes sunspin{to{transform:rotate(360deg);}}
+.to-contacts:hover .sunend{animation:sunspin 9s linear infinite;filter:drop-shadow(0 0 14px rgba(226,162,75,.7));}
+@keyframes sunspinrev{to{transform:rotate(-360deg);}}
+.to-back .sunend{animation:sunspinrev 40s linear infinite;}
+.to-back:hover .sunend,.to-back:active .sunend{animation:sunspinrev 9s linear infinite;filter:drop-shadow(0 0 14px rgba(226,162,75,.7));}
+
+/* ============ PAGE 4 — CONTATOS ============ */
+#p4{color:#fff;overflow:hidden;}
+#p4 .bg{position:absolute;inset:-6%;background:#181613 center/cover;filter:url(#wavyF);
+  background-image:linear-gradient(rgba(18,15,13,.66),rgba(18,15,13,.78)),url("assets/contato.jpg");
+  animation:slowzoom 26s ease-in-out infinite alternate;transform-origin:50% 58%;}
+@keyframes slowzoom{from{transform:scale(1);}to{transform:scale(1.12);}}
+#p4 .glow{position:absolute;border-radius:50%;pointer-events:none;mix-blend-mode:screen;filter:blur(8px);
+  background:radial-gradient(circle,rgba(255,198,122,.55),rgba(255,170,90,.18) 55%,transparent 72%);
+  animation:flick var(--fd,3.4s) ease-in-out var(--fdel,0s) infinite;}
+@keyframes flick{0%,100%{opacity:.32;transform:scale(1);}28%{opacity:.68;}52%{opacity:.4;transform:scale(1.09);}78%{opacity:.62;}}
+#p4 .sparkles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+#p4 .sparkles i{position:absolute;background:#ffe9c6;border-radius:50%;opacity:0;
+  box-shadow:0 0 6px 1px rgba(255,220,160,.7);animation:tw var(--d,4s) ease-in-out var(--delay,0s) infinite;}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.4);}50%{opacity:.9;transform:scale(1);}}
+#p4 .inner{position:relative;z-index:3;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 clamp(20px,5.5vw,72px);}
+#p4 .kicker{color:#e6bc94;}
+#p4 h2{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(38px,7vw,80px);line-height:1.02;margin:22px 0 40px;}
+#p4 h2 em{color:#efd8c2;}
+#p4 .links{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+#p4 .links a{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;border:1px solid rgba(255,255,255,.5);padding:16px 30px;transition:.3s var(--ease);}
+#p4 .links a:hover{background:#fff;color:var(--ink);border-color:#fff;}
+#p4 .foot{position:absolute;left:0;right:0;bottom:0;z-index:3;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+  padding:22px clamp(20px,5.5vw,72px);font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+#p4 .foot a.wd{color:inherit;transition:.25s;} #p4 .foot a.wd:hover{color:#efd8c2;}
+
+/* ============ transição: cinematic depth of field ============ */
+#track{transition:transform .95s var(--ease),filter .9s var(--ease);}
+body.blurred #track{filter:blur(18px) saturate(.85) brightness(1.06);}
+#grain{position:fixed;inset:0;z-index:140;pointer-events:none;opacity:0;transition:opacity .85s var(--ease);
+  mix-blend-mode:overlay;background-size:220px 220px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");}
+body.blurred #grain{opacity:.55;}
+
+/* ---------- lightbox ---------- */
+.lightbox{position:fixed;inset:0;z-index:300;background:rgba(16,13,11,.97);display:none;align-items:center;justify-content:center;}
+.lightbox.open{display:flex;animation:mp .3s;}
+.lightbox img{max-width:92vw;max-height:82vh;object-fit:contain;box-shadow:0 30px 90px rgba(0,0,0,.6);}
+.lightbox .lb-cap{position:absolute;bottom:28px;left:0;right:0;text-align:center;color:#fff;padding:0 16px;box-sizing:border-box;pointer-events:none;}
+.lightbox .lb-cap .t{font-family:var(--display);font-style:italic;font-size:clamp(15px,1.6vw,19px);color:rgba(255,255,255,.82);text-shadow:0 1px 12px rgba(0,0,0,.8);line-height:1.3;}
+.lightbox .lb-cap .c{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:5px;}
+.lightbox .lb-close{position:absolute;top:24px;right:28px;background:none;border:0;color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.12em;cursor:pointer;padding:8px;}
+.lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:0;color:#fff;font-size:44px;cursor:pointer;padding:18px;opacity:.65;transition:.2s;font-family:var(--serif);}
+.lightbox .lb-nav:hover{opacity:1;} .lightbox .prev{left:8px;} .lightbox .next{right:8px;}
+.lightbox .lb-count{position:absolute;top:26px;left:28px;font-family:var(--mono);font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.7);}
+
+/* ---------- editor ---------- */
+#editorBar{position:fixed;left:0;right:0;bottom:0;z-index:180;background:var(--ink);color:var(--paper);display:none;align-items:center;gap:16px;padding:13px clamp(16px,4vw,44px);flex-wrap:wrap;font-family:var(--mono);font-size:12px;box-shadow:0 -8px 34px rgba(0,0,0,.28);}
+body.editor-active #editorBar{display:flex;}
+#editorBar .status{display:flex;align-items:center;gap:8px;} #editorBar .status .led{width:9px;height:9px;border-radius:50%;background:#c0603f;} #editorBar .status.ok .led{background:#7faa6a;}
+#editorBar button{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:1px solid var(--paper);background:none;color:var(--paper);padding:9px 15px;transition:.2s;}
+#editorBar button:hover{background:var(--paper);color:var(--ink);}
+#editorBar button.primary{background:var(--clay);border-color:var(--clay);color:#fff;} #editorBar button.primary:hover{background:var(--clay-deep);border-color:var(--clay-deep);}
+#editorBar .spacer{flex:1;} #editorBar .hint{color:rgba(244,241,234,.55);}
+.modal{position:fixed;inset:0;z-index:400;background:rgba(16,13,11,.62);display:none;align-items:center;justify-content:center;padding:20px;}
+.modal.open{display:flex;}
+.modal .box{background:var(--paper);max-width:520px;width:100%;padding:36px;border:1px solid var(--line);position:relative;max-height:90vh;overflow:auto;}
+.modal .box h3{font-family:var(--display);font-style:italic;font-size:32px;font-weight:400;margin-bottom:8px;}
+.modal .box .sub{color:var(--ink-soft);font-size:14px;margin-bottom:22px;}
+.modal label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin:16px 0 6px;}
+.modal input{width:100%;padding:11px 13px;border:1px solid var(--line);background:#fff;font-family:var(--mono);font-size:13px;color:var(--ink);}
+.modal input:focus{outline:2px solid var(--clay);outline-offset:-1px;}
+.modal .row{display:flex;gap:12px;} .modal .row>div{flex:1;}
+.modal .actions{display:flex;gap:10px;margin-top:26px;}
+.modal .actions button{flex:1;padding:12px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border:1px solid var(--ink);}
+.modal .actions .go{background:var(--ink);color:var(--paper);} .modal .actions .cancel{background:none;color:var(--ink);}
+.modal .note{font-size:12.5px;color:var(--ink-soft);line-height:1.55;margin-top:18px;border-left:2px solid var(--clay);padding-left:12px;} .modal .note b{color:var(--ink);}
+.modal .close-x{position:absolute;top:14px;right:16px;background:none;border:0;font-family:var(--mono);font-size:12px;cursor:pointer;color:var(--ink-soft);}
+#dropzone{position:fixed;inset:0;z-index:350;background:rgba(18,15,13,.86);display:none;align-items:center;justify-content:center;color:var(--paper);text-align:center;}
+#dropzone.show{display:flex;}
+#dropzone .inner{border:2px dashed rgba(244,241,234,.6);padding:64px 84px;}
+#dropzone .inner .big{font-family:var(--display);font-style:italic;font-size:44px;margin-bottom:10px;}
+#dropzone .inner .sm{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,241,234,.7);}
+.upload-list{margin-top:14px;font-family:var(--mono);font-size:11px;color:rgba(244,241,234,.85);text-align:left;} .upload-list div{padding:3px 0;}
+#toast{position:fixed;bottom:78px;left:50%;transform:translateX(-50%) translateY(20px);z-index:500;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;padding:12px 20px;opacity:0;transition:.3s;pointer-events:none;max-width:90vw;text-align:center;}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+@media(max-width:640px){
+  #menu{top:14px;right:14px;} #menuBtn{padding:9px 13px;font-size:10px;}
+  #p1 h1{font-size:clamp(40px,13vw,64px);}
+  #p1 .eyebrow{font-size:10px;letter-spacing:.24em;}
+  .sec-head h2{font-size:clamp(30px,9vw,44px);}
+  .sec-head p{font-size:14px;}
+  #p2 .inner,#p3 .inner{padding-top:76px;}
+  .sobre-grid{gap:26px;}
+  .to-next .big{font-size:clamp(28px,8vw,40px);gap:14px;}
+  #p4 h2{font-size:clamp(32px,9vw,52px);}
+  #p4 .links a{padding:13px 20px;font-size:11px;}
+  .lightbox .lb-nav{font-size:34px;padding:10px;}
+
+  /* respiro lateral dos textos (Work / About) */
+  #p2 .inner,#p3 .inner{padding-left:22px;padding-right:22px;}
+
+  /* legendas em marca d'água — sempre visíveis, translúcidas e legíveis */
+  .tile .cap{opacity:1;transform:none;background:none;padding:10px 12px;}
+  .tile .cap .t{font-size:14px;color:rgba(255,255,255,.82);text-shadow:0 1px 10px rgba(0,0,0,.7);}
+  .tile::after{display:none;}
+
+  /* lightbox: legenda contida na imagem, tangenciando simetricamente */
+  .lightbox img{max-width:92vw;}
+  .lightbox .lb-cap{left:4vw;right:4vw;bottom:16px;}
+  .lightbox .lb-cap .t{font-size:16px;line-height:1.25;text-shadow:0 1px 10px rgba(0,0,0,.75);}
+
+  /* navegação simétrica no fim das páginas 2 e 3 */
+  .pagenav{justify-content:space-between;align-items:center;gap:12px;}
+  .pagenav .to-prev{gap:12px;padding:clamp(36px,6vh,70px) 0 clamp(56px,9vh,100px);}
+  .to-prev .big{font-family:var(--display);font-style:italic;font-size:clamp(22px,6.5vw,30px);color:var(--ink);
+    display:flex;align-items:center;gap:10px;transition:.25s;}
+  .to-prev .arrowwrap{position:relative;display:inline-flex;align-items:center;}
+  .to-prev .arrow{width:42px;}
+  .to-prev:active .big{color:var(--clay);}
+  .pagenav .to-next{padding:clamp(36px,6vh,70px) 0 clamp(56px,9vh,100px);}
+  .pagenav .to-next .big{font-size:clamp(22px,6.5vw,30px);gap:10px;}
+  .pagenav .to-next .arrow{width:42px;}
+  .pagenav .to-contacts{align-items:center;gap:12px;padding:clamp(36px,6vh,70px) 0 clamp(56px,9vh,100px);}
+  .pagenav .to-contacts svg{width:46px;height:46px;}
+
+  /* página 4: botão pequeno "about me" à esquerda */
+  #p4 .backmini{position:static;transform:none;margin-top:16px;}
+  #p4 .backmini .ar{display:inline-block;animation:bobXr 1.6s ease-in-out infinite;}
+
+  /* página 4: rodapé legível no celular */
+  #p4 .inner{padding-bottom:104px;}
+  #p4 .foot{flex-direction:column;align-items:center;text-align:center;gap:5px;
+    padding:16px 16px calc(14px + env(safe-area-inset-bottom));
+    background:linear-gradient(transparent,rgba(13,11,9,.92) 40%);
+    color:rgba(255,255,255,.88);font-size:10px;letter-spacing:.14em;}
+}
+@keyframes bobXr{0%,100%{transform:translateX(0);}50%{transform:translateX(-9px);}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.2s!important;}}
+</style>
+</head>
+<body>
+
+<!-- MENU -->
+<div id="menu">
+  <button id="menuBtn"><span id="menuLabel">Menu</span><span class="bars"><i></i><i></i><i></i></span></button>
+  <nav id="menuPanel">
+    <a data-go="0">Home<span class="no">01</span></a>
+    <a data-go="1">Work<span class="no">02</span></a>
+    <a data-go="2">About me<span class="no">03</span></a>
+    <a data-go="3">Contact<span class="no">04</span></a>
+  </nav>
+</div>
+
+<!-- TRACK -->
+<div id="track">
+
+  <!-- PAGE 1 -->
+  <section class="panel" id="p1">
+    <div class="vidframe"><video class="bgvid" autoplay muted loop playsinline preload="auto" poster="assets/intro-poster.jpg"><source src="assets/intro.mp4" type="video/mp4"></video></div>
+    <div class="side">
+      <div class="stack">
+        <h1><span id="p1Name">Ana Luiza Val</span></h1>
+        <div class="eyebrow" id="p1Eyebrow">fotografia, direção criativa, artes plásticas</div>
+        <div class="rule"></div>
+      </div>
+      <div class="sidefoot"><svg class="sunmini" viewBox="0 0 100 100" style="width:30px;height:30px"><circle cx="50" cy="50" r="19" fill="#e2a24b"/><g stroke="#e2a24b" stroke-width="4.5" stroke-linecap="round"><line x1="50" y1="24" x2="50" y2="11" transform="rotate(0 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(30 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(60 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(90 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(120 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(150 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(180 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(210 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(240 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(270 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(300 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(330 50 50)"/></g><g stroke="#e2a24b" stroke-width="2.6" stroke-linecap="round"><line x1="50" y1="26" x2="50" y2="17" transform="rotate(15 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(45 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(75 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(105 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(135 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(165 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(195 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(225 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(255 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(285 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(315 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(345 50 50)"/></g></svg><span class="tag">portfólio</span></div>
+    </div>
+    <div class="enter">clique para entrar <span class="ar">→</span></div>
+  </section>
+
+  <!-- PAGE 2 — WORK -->
+  <section class="panel scroll" id="p2">
+    <div class="inner wrap">
+      <div class="sec-head">
+        <div class="lead">
+          <div class="kicker">§ 02 — Work</div>
+          <h2>Work</h2>
+          <p>Ana Luiza desenvolve projetos de direção criativa, fotografia e criação de conteúdo. Cada trabalho nasce da união entre sensibilidade artística, criatividade e estratégia, resultando em imagens que não apenas comunicam, mas despertam emoções, fortalecem identidades e constroem conexões duradouras.</p>
+        </div>
+        <div class="sec-no" id="photoCount">—</div>
+      </div>
+      <div class="filters" id="filters"></div>
+      <div class="grid" id="grid"></div>
+      <div class="pagenav">
+      <div class="to-prev" id="toHome">
+        <span class="big"><span class="arrowwrap"><span class="arrow"></span><svg class="suntip sun-l" viewBox="0 0 100 100" style="width:36px;height:36px"><circle cx="50" cy="50" r="19" fill="#e2a24b"/><g stroke="#e2a24b" stroke-width="4.5" stroke-linecap="round"><line x1="50" y1="24" x2="50" y2="11" transform="rotate(0 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(30 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(60 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(90 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(120 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(150 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(180 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(210 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(240 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(270 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(300 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(330 50 50)"/></g><g stroke="#e2a24b" stroke-width="2.6" stroke-linecap="round"><line x1="50" y1="26" x2="50" y2="17" transform="rotate(15 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(45 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(75 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(105 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(135 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(165 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(195 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(225 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(255 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(285 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(315 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(345 50 50)"/></g></svg></span><span>Home</span></span>
+      </div>
+      <div class="to-next" id="toSobre">
+        <span class="big"><span>About me</span><span class="arrowwrap"><span class="arrow"></span><svg class="suntip" viewBox="0 0 100 100" style="width:36px;height:36px"><circle cx="50" cy="50" r="19" fill="#e2a24b"/><g stroke="#e2a24b" stroke-width="4.5" stroke-linecap="round"><line x1="50" y1="24" x2="50" y2="11" transform="rotate(0 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(30 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(60 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(90 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(120 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(150 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(180 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(210 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(240 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(270 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(300 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(330 50 50)"/></g><g stroke="#e2a24b" stroke-width="2.6" stroke-linecap="round"><line x1="50" y1="26" x2="50" y2="17" transform="rotate(15 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(45 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(75 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(105 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(135 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(165 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(195 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(225 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(255 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(285 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(315 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(345 50 50)"/></g></svg></span></span>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 3 — SOBRE MIM -->
+  <section class="panel scroll" id="p3">
+    <div class="inner wrap">
+      <div class="sec-head">
+        <div class="lead"><div class="kicker">§ 03 — About me</div><h2>About me</h2></div>
+        <div class="sec-no">Rio de Janeiro · BR</div>
+      </div>
+      <div class="sobre-grid">
+        <div class="portrait">
+          <img src="assets/sobre-1.jpg" class="on" alt="Ana Luiza Val">
+          <img src="assets/sobre-2.jpg" alt="Ana Luiza Val">
+          <img src="assets/sobre-3.jpg" alt="Ana Luiza Val">
+          <div class="shimmer"></div>
+          <span class="mk">Ana Luiza Val</span>
+        </div>
+        <div class="sobre-body">
+          <h3 id="sobreNome">Ana Luiza Val</h3>
+          <p>Ana Luiza, nascida em 26 de outubro de 2006, no Rio de Janeiro. Desde a infância, a arte fez parte da maneira como ela descobriu o mundo. Entre as mãos marcadas pela tinta e a curiosidade de enxergar a vida através de uma câmera, aprendeu que criar é, antes de tudo, um exercício de sentir. Foi nesse encontro entre cores, luz e imaginação que nasceu o olhar que hoje conduz o seu trabalho.</p>
+          <p>Acredita que a criatividade nasce do olhar atento. Mais do que registrar imagens, busca construir experiências visuais que traduzam essência, despertem sentimentos e estabeleçam conexões autênticas.</p>
+        </div>
+      </div>
+      <div class="pagenav">
+      <div class="to-contacts to-back" id="toWork3">
+        <svg class="sunend sunback" viewBox="0 0 100 100" style="width:62px;height:62px"><circle cx="50" cy="50" r="19" fill="#e2a24b"/><g stroke="#e2a24b" stroke-width="4.5" stroke-linecap="round"><line x1="50" y1="24" x2="50" y2="11" transform="rotate(0 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(30 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(60 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(90 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(120 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(150 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(180 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(210 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(240 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(270 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(300 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(330 50 50)"/></g><g stroke="#e2a24b" stroke-width="2.6" stroke-linecap="round"><line x1="50" y1="26" x2="50" y2="17" transform="rotate(15 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(45 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(75 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(105 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(135 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(165 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(195 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(225 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(255 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(285 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(315 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(345 50 50)"/></g></svg>
+        <span class="lbl">Work</span>
+      </div>
+      <div class="to-contacts" id="toContatos">
+        <svg class="sunend" viewBox="0 0 100 100" style="width:62px;height:62px"><circle cx="50" cy="50" r="19" fill="#e2a24b"/><g stroke="#e2a24b" stroke-width="4.5" stroke-linecap="round"><line x1="50" y1="24" x2="50" y2="11" transform="rotate(0 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(30 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(60 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(90 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(120 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(150 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(180 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(210 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(240 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(270 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(300 50 50)"/><line x1="50" y1="24" x2="50" y2="11" transform="rotate(330 50 50)"/></g><g stroke="#e2a24b" stroke-width="2.6" stroke-linecap="round"><line x1="50" y1="26" x2="50" y2="17" transform="rotate(15 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(45 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(75 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(105 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(135 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(165 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(195 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(225 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(255 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(285 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(315 50 50)"/><line x1="50" y1="26" x2="50" y2="17" transform="rotate(345 50 50)"/></g></svg>
+        <span class="lbl">meus contatos</span>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 4 — CONTATOS -->
+  <section class="panel" id="p4">
+    <div class="bg"></div>
+    <div class="sparkles" id="sparkles"></div>
+    <div class="inner">
+      <div class="kicker">§ 04 — Contact</div>
+      <h2>Vamos <em>criar algo</em><br>juntos?</h2>
+      <div class="links" id="contatoLinks"></div>
+      <button class="backmini" id="toAboutMini"><span class="ar">←</span> about me</button>
+    </div>
+    <div class="foot">
+      <span>© <span id="year"></span> Ana Luiza Val</span>
+      <a class="wd" href="https://www.linkedin.com/in/gabriel-hossana-lopes-roque-18111b246/" target="_blank" rel="noopener">Web design — Gabriel Hossana</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- filtro de ondulação (página 4) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="wavyF" x="-6%" y="-6%" width="112%" height="112%">
+  <feTurbulence type="fractalNoise" baseFrequency="0.011 0.016" numOctaves="2" seed="4" result="n">
+    <animate attributeName="baseFrequency" dur="16s" values="0.011 0.016;0.014 0.02;0.011 0.016" repeatCount="indefinite"/>
+  </feTurbulence>
+  <feDisplacementMap in="SourceGraphic" in2="n" scale="12" xChannelSelector="R" yChannelSelector="G"/>
+</filter></svg>
+<!-- grain overlay (transição) -->
+<div id="grain"></div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">Fechar ✕</button>
+  <span class="lb-count" id="lbCount"></span>
+  <button class="lb-nav prev" id="lbPrev">‹</button>
+  <img id="lbImg" alt="">
+  <button class="lb-nav next" id="lbNext">›</button>
+  <div class="lb-cap"><div class="t" id="lbTitle"></div><div class="c" id="lbCat"></div></div>
+</div>
+
+<!-- EDITOR -->
+<div id="editorBar">
+  <div class="status" id="edStatus"><span class="led"></span><span id="edStatusText">Não conectado</span></div>
+  <span class="hint">Conecte-se para adicionar ou remover fotos.</span>
+  <div class="spacer"></div>
+  <button id="btnConnect">Conectar</button>
+  <button id="btnAddPhotos">+ Adicionar fotos</button>
+  <button id="btnPublish" class="primary">Publicar alterações</button>
+  <button id="btnExitEdit">Sair</button>
+</div>
+<div class="modal" id="connectModal">
+  <div class="box">
+    <button class="close-x" id="connectClose">✕</button>
+    <h3>Modo edição</h3>
+    <div class="sub">Conecte o portfólio ao repositório do GitHub para adicionar fotos direto pelo site.</div>
+    <div class="row">
+      <div><label>Usuário / organização</label><input id="inpOwner" placeholder="analuizaval" autocomplete="off"></div>
+      <div><label>Repositório</label><input id="inpRepo" placeholder="analuizaval.github.io" autocomplete="off"></div>
+    </div>
+    <label>Branch</label><input id="inpBranch" placeholder="main" value="main" autocomplete="off">
+    <label>Token de acesso (GitHub)</label>
+    <input id="inpToken" type="password" placeholder="github_pat_..." autocomplete="off">
+    <div class="note">O token fica salvo <b>só neste navegador</b> (nunca vai para o site). Use um <b>fine-grained token</b> limitado a este repositório, com <b>Contents: Read and write</b>. Quem não tem o token só vê o portfólio.</div>
+    <div class="actions"><button class="cancel" id="connectCancel">Cancelar</button><button class="go" id="connectGo">Conectar</button></div>
+  </div>
+</div>
+<div id="dropzone"><div class="inner"><div class="big">Solte as fotos aqui</div><div class="sm">Envio em qualidade original · JPG, PNG, WEBP</div><div class="upload-list" id="uploadList"></div></div></div>
+<div id="toast"></div>
+
+<script>
+/* ================= dados ================= */
+const DEFAULTS = {
+  titulo:"Ana Luiza Val",
+  eyebrow:"fotografia, direção criativa, artes plásticas",
+  cidade:"Rio de Janeiro",
+  categorias:["Fotografias","Obras"],
+  contato:{ whatsapp:"5524993122505", instagram:"analuizavalfotografia", email:"analuiza.val.souza@gmail.com" },
+  fotos:[
+    {arquivo:"fotos/foto-04.jpg", categoria:"Fotografias", titulo:"Fim de tarde"},
+    {arquivo:"fotos/foto-15.jpg", categoria:"Fotografias", titulo:"Espelho d'água"},
+    {arquivo:"fotos/foto-07.jpg", categoria:"Fotografias", titulo:"Contraluz"},
+    {arquivo:"fotos/foto-21.jpg", categoria:"Fotografias", titulo:"Baía ao entardecer"},
+    {arquivo:"fotos/foto-01.jpg", categoria:"Fotografias", titulo:"Chardonnay"},
+    {arquivo:"fotos/foto-09.jpg", categoria:"Fotografias", titulo:"Safra 2025 vila botané"},
+    {arquivo:"fotos/foto-13.jpg", categoria:"Fotografias", titulo:"Safra 2025 Vila Botané"},
+    {arquivo:"fotos/foto-19.jpg", categoria:"Fotografias", titulo:"Folha de videira"},
+    {arquivo:"fotos/foto-17.jpg", categoria:"Fotografias", titulo:"Gastronomia, Casa do Lago Bistrô"},
+    {arquivo:"fotos/foto-05.jpg", categoria:"Fotografias", titulo:"Gastronomia, Casa do Lago Bistrô", dupla:"a"},
+    {arquivo:"fotos/foto-10.jpg", categoria:"Fotografias", titulo:"Gastronomia, Casa do Lago Bistrô", dupla:"a"},
+    {arquivo:"fotos/foto-02.jpg", categoria:"Fotografias", titulo:"Gastronomia, Casa do Lago Bistrô"},
+    {arquivo:"fotos/foto-14.jpg", categoria:"Fotografias", titulo:"Mesa posta"},
+    {arquivo:"fotos/foto-08.jpg", categoria:"Fotografias", titulo:"Banquete de Luz"},
+    {arquivo:"fotos/foto-28.jpg", categoria:"Fotografias", titulo:"adega", dupla:"b"},
+    {arquivo:"fotos/foto-29.jpg", categoria:"Fotografias", titulo:"adega", dupla:"b"},
+    {arquivo:"fotos/foto-18.jpg", categoria:"Fotografias", titulo:"À meia luz"},
+    {arquivo:"fotos/foto-11.jpg", categoria:"Fotografias", titulo:"Salão à luz de vela"},
+    {arquivo:"fotos/foto-20.jpg", categoria:"Fotografias", titulo:"Alma da casa em moldura"},
+    {arquivo:"fotos/foto-03.jpg", categoria:"Fotografias", titulo:"Jantar sob as luzes"},
+    {arquivo:"fotos/foto-06.jpg", categoria:"Fotografias", titulo:"Jantar sob as luzes"},
+    {arquivo:"fotos/foto-16.jpg", categoria:"Fotografias", titulo:"Onde o vinho encontra o Jazz"},
+    {arquivo:"fotos/foto-25.jpg", categoria:"Fotografias", titulo:"Refúgio em Mi menor"},
+    {arquivo:"fotos/foto-31.jpg", categoria:"Fotografias", titulo:"Rótulos e Traços"},
+    {arquivo:"fotos/foto-23.jpg", categoria:"Fotografias", titulo:"Nossa primeira safra, casamento Vila Botané"},
+    {arquivo:"fotos/foto-12.jpg", categoria:"Fotografias", titulo:"Flores de cesta e luz"},
+    {arquivo:"fotos/foto-24.jpg", categoria:"Fotografias", titulo:"Arte em barro"},
+    {arquivo:"fotos/foto-30.jpg", categoria:"Fotografias", titulo:"Dois Lados da Mesma Linha, Galeria Aecio Sarti"},
+    {arquivo:"fotos/foto-32.jpg", categoria:"Fotografias", titulo:"Homens em Paletós Estampados, Galeria Aercio Sarti"},
+    {arquivo:"fotos/foto-22.jpg", categoria:"Fotografias", titulo:"Mar de esmeralda"},
+    {arquivo:"fotos/foto-33.jpg", categoria:"Fotografias", titulo:"Urca em Âmbar"},
+    {arquivo:"fotos/foto-26.jpg", categoria:"Fotografias", titulo:"Sombras Cariocas"},
+    {arquivo:"fotos/foto-34.jpg", categoria:"Fotografias", titulo:"Veias de Madeira"},
+    {arquivo:"fotos/foto-35.jpg", categoria:"Obras", titulo:"Reprodução: Terrasse du café Le Soir, Van Gogh. Óleo sobre tela"},
+    {arquivo:"fotos/foto-36.jpg", categoria:"Obras", titulo:"Sem título, óleo sobre tela"},
+    {arquivo:"fotos/foto-37.jpg", categoria:"Obras", titulo:"Une Barque sur l'océan from mirois, óleo sobre tela"},
+    {arquivo:"fotos/foto-38.jpg", categoria:"Obras", titulo:"Poema de Cores, óleo sobre tela"},
+    {arquivo:"fotos/foto-39.jpg", categoria:"Obras", titulo:"Sem título, óleo sobre tela"},
+    {arquivo:"fotos/foto-40.jpg", categoria:"Obras", titulo:"A vista do Lago de Como, óleo sobre tela"},
+    {arquivo:"fotos/foto-41.jpg", categoria:"Obras", titulo:"Sem título, óleo sobre tela"},
+    {arquivo:"fotos/foto-42.jpg", categoria:"Obras", titulo:"Sob o céu de Ipanema, óleo sobre tela"}
+  ]
+};
+let DATA=null, currentFilter="Fotografias", visible=[], dirty=false;
+const gh={owner:"",repo:"",branch:"main",token:"",connected:false};
+
+async function loadData(){
+  try{ const r=await fetch("./fotos.json",{cache:"no-store"}); if(r.ok)DATA=await r.json(); else throw 0; }
+  catch(e){ DATA=JSON.parse(JSON.stringify(DEFAULTS)); }
+  DATA=Object.assign({},DEFAULTS,DATA); render();
+}
+function render(){
+  const t=DATA.titulo;
+  document.getElementById("p1Name").textContent=t;
+  document.getElementById("p1Eyebrow").textContent=DATA.eyebrow||DEFAULTS.eyebrow;
+  document.getElementById("sobreNome").textContent=t;
+  document.getElementById("year").textContent=new Date().getFullYear();
+  renderContato(); renderFilters(); renderGrid();
+}
+function renderContato(){
+  const c=DATA.contato||{}, box=document.getElementById("contatoLinks"); box.innerHTML="";
+  const add=(l,h)=>{ if(!h)return; const a=document.createElement("a"); a.textContent=l; a.href=h; a.target="_blank"; a.rel="noopener"; box.appendChild(a); };
+  if(c.whatsapp) add("WhatsApp","https://wa.me/"+String(c.whatsapp).replace(/\D/g,""));
+  if(c.instagram) add("Instagram","https://instagram.com/"+String(c.instagram).replace(/^@/,""));
+  if(c.email){ const a=document.createElement("a"); a.textContent="E-mail"; a.href="email.html"; box.appendChild(a); }
+  if(!box.children.length) add("Instagram","https://instagram.com/"+String(c.instagram||"analuizavalfotografia").replace(/^@/,""));
+}
+function renderFilters(){
+  const cats=[...(DATA.categorias||[])], box=document.getElementById("filters"); box.innerHTML="";
+  cats.forEach(cat=>{ const b=document.createElement("button"); b.textContent=cat; if(cat===currentFilter)b.classList.add("on");
+    b.onclick=()=>{currentFilter=cat; renderFilters(); renderGrid();}; box.appendChild(b); });
+}
+function makeTile(f,pos){
+  const tile=document.createElement("div"); tile.className="tile"; tile.dataset.i=f._i;
+  const img=document.createElement("img"); img.src=f.arquivo; img.alt=f.titulo||"Foto"; img.loading="lazy"; img.decoding="async"; tile.appendChild(img);
+  const cap=document.createElement("div"); cap.className="cap"; cap.innerHTML='<div class="t">'+esc(f.titulo||"")+'</div>'; tile.appendChild(cap);
+  const ec=document.createElement("div"); ec.className="edit-ctrl";
+  const sel=document.createElement("select"); (DATA.categorias||[]).forEach(cat=>{ const o=document.createElement("option"); o.value=cat; o.textContent=cat; if(cat===f.categoria)o.selected=true; sel.appendChild(o); });
+  sel.onclick=e=>e.stopPropagation(); sel.onchange=()=>{ DATA.fotos[f._i].categoria=sel.value; markDirty(); renderGrid(); };
+  const del=document.createElement("button"); del.textContent="Excluir"; del.onclick=e=>{ e.stopPropagation(); removePhoto(f._i); };
+  ec.appendChild(sel); ec.appendChild(del); tile.appendChild(ec);
+  tile.onclick=()=>openLightbox(pos);
+  if(document.body.classList.contains("editing")){
+    tile.draggable=true;
+    tile.addEventListener("dragstart",e=>{ tile.classList.add("dragging"); e.dataTransfer.setData("text/plain",f._i); });
+    tile.addEventListener("dragend",()=>tile.classList.remove("dragging"));
+    tile.addEventListener("dragover",e=>e.preventDefault());
+    tile.addEventListener("drop",e=>{ e.preventDefault(); e.stopPropagation(); reorder(+e.dataTransfer.getData("text/plain"),f._i); });
+  }
+  return tile;
+}
+function renderGrid(){
+  const grid=document.getElementById("grid"); grid.innerHTML="";
+  const list=(DATA.fotos||[]).map((f,i)=>({...f,_i:i})).filter(f=>currentFilter==="Todos"||f.categoria===currentFilter);
+  visible=list;
+  document.getElementById("photoCount").textContent=String(list.length).padStart(2,"0")+" imagens";
+  if(!list.length){ grid.innerHTML='<div class="empty">'+(currentFilter==="Obras"?"Em breve — obras da artista.":"Nenhuma foto nesta categoria ainda.")+'</div>'; return; }
+  let k=0;
+  while(k<list.length){
+    const f=list[k];
+    if(f.dupla && k+1<list.length && list[k+1].dupla===f.dupla){
+      const wrap=document.createElement("div"); wrap.className="pair";
+      wrap.appendChild(makeTile(f,k)); wrap.appendChild(makeTile(list[k+1],k+1));
+      grid.appendChild(wrap); k+=2;
+    } else { grid.appendChild(makeTile(f,k)); k++; }
+  }
+  setupReveal();
+}
+let revealIO=null;
+function setupReveal(){
+  const root=document.getElementById("p2");
+  const tiles=document.querySelectorAll("#grid .tile");
+  if(revealIO)revealIO.disconnect();
+  if(!("IntersectionObserver" in window)){ tiles.forEach(t=>t.classList.add("vis")); return; }
+  revealIO=new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("vis"); revealIO.unobserve(en.target); } }); },{root,threshold:.16});
+  tiles.forEach(t=>revealIO.observe(t));
+}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+/* ================= navegação 4 páginas ================= */
+const track=document.getElementById("track"); let cur=0; let busy=false;
+function setActiveMenu(){ document.querySelectorAll("#menuPanel a").forEach(a=>a.classList.toggle("active",+a.dataset.go===cur)); }
+function setPageInstant(i){ track.style.transition="none"; track.style.transform="translateX(-"+(i*100)+"vw)"; track.getBoundingClientRect(); track.style.transition=""; cur=i; afterNav(i); }
+function afterNav(i){ const p=document.querySelectorAll(".panel")[i]; if(p&&p.classList.contains("scroll"))p.scrollTop=0; document.body.dataset.page=i; setActiveMenu(); }
+function goFocus(i){ /* Cinematic Depth of Field: desfoca + grão, troca, refoca */
+  if(busy||i===cur)return; busy=true;
+  document.body.classList.add("blurred");
+  setTimeout(()=>{
+    setPageInstant(i);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.remove("blurred")));
+    setTimeout(()=>{ busy=false; },950);
+  },900);
+}
+/* menu */
+const menu=document.getElementById("menu");
+document.getElementById("menuBtn").onclick=(e)=>{ e.stopPropagation(); menu.classList.toggle("open"); };
+document.querySelectorAll("#menuPanel a").forEach(a=>{ a.onclick=(e)=>{ e.stopPropagation(); menu.classList.remove("open"); goFocus(+a.dataset.go); }; });
+document.addEventListener("click",()=>menu.classList.remove("open"));
+/* page1 click -> page2 */
+document.getElementById("p1").addEventListener("click",(e)=>{ if(e.target.closest("#menu"))return; goFocus(1); });
+/* arrow & mandala */
+document.getElementById("toSobre").onclick=()=>goFocus(2);
+document.getElementById("toContatos").onclick=()=>goFocus(3);
+const _th=document.getElementById("toHome"); if(_th)_th.onclick=()=>goFocus(0);
+const _tw=document.getElementById("toWork3"); if(_tw)_tw.onclick=()=>goFocus(1);
+const _ta=document.getElementById("toAboutMini"); if(_ta)_ta.onclick=(e)=>{e.stopPropagation();goFocus(2);};
+
+/* ================= retrato: alterna 3 fotos a cada 10s ================= */
+(function(){ const imgs=document.querySelectorAll(".portrait img"); if(imgs.length<2)return; let k=0;
+  setInterval(()=>{ imgs[k].classList.remove("on"); k=(k+1)%imgs.length; imgs[k].classList.add("on"); },10000);
+})();
+
+/* ================= brilhos + chamas página 4 (cinemagraph) ================= */
+(function(){ const p4=document.getElementById("p4"); if(!p4)return;
+  const pts=[[22,58,90],[38,66,120],[55,52,80],[70,62,110],[83,48,70]]; // x%,y%,size
+  pts.forEach(([x,y,s],i)=>{ const g=document.createElement("div"); g.className="glow";
+    g.style.left="calc("+x+"% - "+(s/2)+"px)"; g.style.top="calc("+y+"% - "+(s/2)+"px)";
+    g.style.width=g.style.height=s+"px";
+    g.style.setProperty("--fd",(2.6+Math.random()*2).toFixed(2)+"s");
+    g.style.setProperty("--fdel",(Math.random()*2).toFixed(2)+"s");
+    p4.insertBefore(g, document.getElementById("sparkles")); });
+})();
+(function(){ const box=document.getElementById("sparkles"); if(!box)return;
+  for(let n=0;n<26;n++){ const s=document.createElement("i");
+    const sz=(Math.random()*3+1.5).toFixed(1);
+    s.style.width=s.style.height=sz+"px";
+    s.style.left=(Math.random()*100).toFixed(2)+"%"; s.style.top=(Math.random()*100).toFixed(2)+"%";
+    s.style.setProperty("--d",(Math.random()*3+2.5).toFixed(2)+"s");
+    s.style.setProperty("--delay",(Math.random()*4).toFixed(2)+"s");
+    box.appendChild(s);
+  }
+})();
+
+/* ================= lightbox ================= */
+let lbPos=0;
+function openLightbox(pos){ if(document.body.classList.contains("editing"))return; lbPos=pos; showLb();
+  document.getElementById("lightbox").classList.add("open"); }
+function fitLbCap(){ const im=document.getElementById("lbImg"), cap=document.querySelector(".lb-cap");
+  if(!im||!cap)return; const r=im.getBoundingClientRect(); if(!r.width)return;
+  cap.style.left=r.left+"px"; cap.style.width=r.width+"px"; cap.style.right="auto";
+  cap.style.bottom=(window.innerHeight-r.bottom+14)+"px"; }
+function showLb(){ const f=visible[lbPos]; if(!f)return;
+  const im=document.getElementById("lbImg"); im.onload=fitLbCap; im.src=f.arquivo;
+  document.getElementById("lbTitle").textContent=f.titulo||"";
+  document.getElementById("lbCat").textContent=""; document.getElementById("lbCount").textContent=(lbPos+1)+" / "+visible.length;
+  requestAnimationFrame(fitLbCap); }
+addEventListener("resize",()=>{ if(document.getElementById("lightbox").classList.contains("open")) fitLbCap(); });
+function closeLb(){ document.getElementById("lightbox").classList.remove("open"); }
+function nextLb(){ lbPos=(lbPos+1)%visible.length; showLb(); }
+function prevLb(){ lbPos=(lbPos-1+visible.length)%visible.length; showLb(); }
+document.getElementById("lbClose").onclick=closeLb; document.getElementById("lbNext").onclick=nextLb; document.getElementById("lbPrev").onclick=prevLb;
+document.getElementById("lightbox").addEventListener("click",e=>{ if(e.target.id==="lightbox")closeLb(); });
+document.addEventListener("keydown",e=>{ if(!document.getElementById("lightbox").classList.contains("open"))return; if(e.key==="Escape")closeLb(); if(e.key==="ArrowRight")nextLb(); if(e.key==="ArrowLeft")prevLb(); });
+
+/* ================= modo edição (GitHub) ================= */
+function toast(m){ const t=document.getElementById("toast"); t.textContent=m; t.classList.add("show"); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove("show"),3300); }
+function markDirty(){ dirty=true; updateStatus(); }
+function enterEditor(){ document.body.classList.add("editor-active"); loadCreds(); if(gh.token&&gh.owner&&gh.repo)verifyConnection(); else openConnect(); }
+function exitEditor(){ if(dirty&&!confirm("Há alterações não publicadas. Sair mesmo assim?"))return; document.body.classList.remove("editor-active","editing"); history.replaceState(null,"",location.pathname); renderGrid(); }
+const inpOwner=document.getElementById("inpOwner"),inpRepo=document.getElementById("inpRepo"),inpBranch=document.getElementById("inpBranch"),inpToken=document.getElementById("inpToken");
+function loadCreds(){ try{ Object.assign(gh,JSON.parse(localStorage.getItem("alv_gh")||"{}")); }catch(e){} if(gh.owner)inpOwner.value=gh.owner; if(gh.repo)inpRepo.value=gh.repo; if(gh.branch)inpBranch.value=gh.branch; if(gh.token)inpToken.value=gh.token; }
+function saveCreds(){ localStorage.setItem("alv_gh",JSON.stringify({owner:gh.owner,repo:gh.repo,branch:gh.branch,token:gh.token})); }
+function updateStatus(){ const st=document.getElementById("edStatus"),tx=document.getElementById("edStatusText");
+  if(gh.connected){ st.classList.add("ok"); tx.textContent=(dirty?"Alterações pendentes · ":"Conectado · ")+gh.owner+"/"+gh.repo; document.body.classList.add("editing"); }
+  else{ st.classList.remove("ok"); tx.textContent="Não conectado"; document.body.classList.remove("editing"); } renderGrid(); }
+function openConnect(){ document.getElementById("connectModal").classList.add("open"); }
+function closeConnect(){ document.getElementById("connectModal").classList.remove("open"); }
+document.getElementById("connectClose").onclick=closeConnect; document.getElementById("connectCancel").onclick=closeConnect;
+document.getElementById("btnConnect").onclick=openConnect; document.getElementById("btnExitEdit").onclick=exitEditor;
+
+document.getElementById("connectGo").onclick=async()=>{ gh.owner=inpOwner.value.trim(); gh.repo=inpRepo.value.trim(); gh.branch=inpBranch.value.trim()||"main"; gh.token=inpToken.value.trim();
+  if(!gh.owner||!gh.repo||!gh.token){ toast("Preencha usuário, repositório e token."); return; } await verifyConnection(true); };
+async function ghFetch(path,opts={}){ return fetch("https://api.github.com"+path,{...opts,headers:{"Authorization":"Bearer "+gh.token,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28",...(opts.headers||{})}}); }
+async function verifyConnection(fromModal){ try{ const r=await ghFetch("/repos/"+gh.owner+"/"+gh.repo); if(!r.ok)throw new Error(r.status===401?"Token inválido.":"Repositório não encontrado.");
+  gh.connected=true; saveCreds(); closeConnect(); updateStatus(); toast("Conectado a "+gh.owner+"/"+gh.repo);
+  }catch(e){ gh.connected=false; updateStatus(); toast("Falha: "+e.message); if(!fromModal)openConnect(); } }
+const dz=document.getElementById("dropzone");
+document.getElementById("btnAddPhotos").onclick=()=>{ const inp=document.createElement("input"); inp.type="file"; inp.accept="image/*"; inp.multiple=true; inp.onchange=()=>handleFiles([...inp.files]); inp.click(); };
+let dzDepth=0;
+addEventListener("dragenter",e=>{ if(!document.body.classList.contains("editing"))return; if([...(e.dataTransfer?.types||[])].includes("Files")){ dzDepth++; dz.classList.add("show"); }});
+addEventListener("dragleave",()=>{ if(!document.body.classList.contains("editing"))return; dzDepth--; if(dzDepth<=0){ dz.classList.remove("show"); dzDepth=0; }});
+addEventListener("dragover",e=>{ if(document.body.classList.contains("editing"))e.preventDefault(); });
+addEventListener("drop",e=>{ if(!document.body.classList.contains("editing"))return; e.preventDefault(); dz.classList.remove("show"); dzDepth=0; const files=[...(e.dataTransfer?.files||[])].filter(f=>f.type.startsWith("image/")); if(files.length)handleFiles(files); });
+async function handleFiles(files){ if(!gh.connected){ toast("Conecte-se ao GitHub primeiro."); openConnect(); return; }
+  dz.classList.add("show"); const list=document.getElementById("uploadList"); list.innerHTML="";
+  for(const file of files){ const line=document.createElement("div"); line.textContent="↑ "+file.name+" — enviando…"; list.appendChild(line);
+    try{ const b64=await fileToBase64(file); const safe=uniqueName(file.name); const path="fotos/"+safe;
+      const r=await ghFetch("/repos/"+gh.owner+"/"+gh.repo+"/contents/"+path,{ method:"PUT", body:JSON.stringify({message:"Adiciona foto "+safe,content:b64,branch:gh.branch}) });
+      if(!r.ok){ const j=await r.json().catch(()=>({})); throw new Error(j.message||("HTTP "+r.status)); }
+      DATA.fotos.push({arquivo:path,categoria:(DATA.categorias&&DATA.categorias[0])||"Fotografias",titulo:prettyName(file.name)});
+      line.textContent="✓ "+file.name+" — enviada"; markDirty();
+    }catch(err){ line.textContent="✕ "+file.name+" — "+err.message; } }
+  renderGrid(); setTimeout(()=>dz.classList.remove("show"),1200); toast("Fotos enviadas. Clique em “Publicar alterações”."); }
+function fileToBase64(file){ return new Promise((res,rej)=>{ const r=new FileReader(); r.onload=()=>res(String(r.result).split(",")[1]); r.onerror=()=>rej(new Error("erro ao ler")); r.readAsDataURL(file); }); }
+function slug(s){ return s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9.\-]+/g,"-").replace(/^-+|-+$/g,""); }
+function uniqueName(n){ const d=n.lastIndexOf("."),ext=d>=0?n.slice(d):""; const b=slug(d>=0?n.slice(0,d):n)||"foto"; return b+"-"+Date.now().toString(36)+ext.toLowerCase(); }
+function prettyName(n){ const d=n.lastIndexOf("."),b=d>=0?n.slice(0,d):n; return b.replace(/[-_]+/g," ").replace(/\b\w/g,c=>c.toUpperCase()).slice(0,40); }
+async function removePhoto(i){ const f=DATA.fotos[i]; if(!f)return; if(!confirm("Excluir “"+(f.titulo||f.arquivo)+"”?"))return;
+  if(gh.connected&&f.arquivo.startsWith("fotos/")){ try{ const g=await ghFetch("/repos/"+gh.owner+"/"+gh.repo+"/contents/"+f.arquivo+"?ref="+gh.branch);
+    if(g.ok){ const j=await g.json(); await ghFetch("/repos/"+gh.owner+"/"+gh.repo+"/contents/"+f.arquivo,{method:"DELETE",body:JSON.stringify({message:"Remove foto "+f.arquivo,sha:j.sha,branch:gh.branch})}); } }catch(e){} }
+  DATA.fotos.splice(i,1); markDirty(); renderGrid(); toast("Foto removida. Publique para confirmar."); }
+function reorder(from,toIdx){ if(from===toIdx)return; const arr=DATA.fotos; const [item]=arr.splice(from,1); let t=toIdx>from?toIdx-1:toIdx; if(t<0)t=0; if(t>arr.length)t=arr.length; arr.splice(t,0,item); markDirty(); renderGrid(); }
+document.getElementById("btnPublish").onclick=publish;
+async function publish(){ if(!gh.connected){ toast("Conecte-se primeiro."); return; } if(!dirty){ toast("Nada para publicar."); return; }
+  toast("Publicando…"); try{ let sha=null; const g=await ghFetch("/repos/"+gh.owner+"/"+gh.repo+"/contents/fotos.json?ref="+gh.branch); if(g.ok)sha=(await g.json()).sha;
+    const content=utf8ToBase64(JSON.stringify(DATA,null,2)); const body={message:"Atualiza portfólio (fotos.json)",content,branch:gh.branch}; if(sha)body.sha=sha;
+    const r=await ghFetch("/repos/"+gh.owner+"/"+gh.repo+"/contents/fotos.json",{method:"PUT",body:JSON.stringify(body)});
+    if(!r.ok){ const j=await r.json().catch(()=>({})); throw new Error(j.message||("HTTP "+r.status)); }
+    dirty=false; updateStatus(); toast("Publicado! O site atualiza em ~1 minuto.");
+  }catch(e){ toast("Erro ao publicar: "+e.message); } }
+function utf8ToBase64(str){ const b=new TextEncoder().encode(str); let s=""; b.forEach(x=>s+=String.fromCharCode(x)); return btoa(s); }
+
+/* init */
+loadData().then(()=>{ document.body.dataset.page=0; setActiveMenu(); if(location.hash==="#estudio"||location.search.includes("editar"))enterEditor(); });
+</script>
+</body>
+</html>

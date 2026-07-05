@@ -1,5 +1,0 @@
-Coloque aqui o arquivo da fonte Ogg Italic (licenciada) com este nome:
-  Ogg-Italic.woff2   (e opcionalmente Ogg-Italic.woff)
-
-Enquanto o arquivo não estiver aqui, o site usa automaticamente a
-Playfair Display Italic (fonte gratuita, parecida) como reserva.

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-mail — Ana Luiza Val</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500&family=Space+Mono&family=Archivo:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:"Ogg";src:url("assets/fonts/Ogg-Italic.woff2") format("woff2");font-style:italic;font-weight:400;font-display:swap;}
+:root{--ink:#181613;--ink-soft:#615d55;--line:#cdc8bd;--paper:#efe0cb;--clay:#a9663f;
+  --display:"Ogg","Playfair Display",Georgia,serif;--mono:"Space Mono",monospace;--sans:"Archivo",sans-serif;
+  --ease:cubic-bezier(.22,.7,.2,1);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:24px;-webkit-font-smoothing:antialiased;overflow:hidden;}
+.reg span{position:absolute;width:22px;height:22px;}
+.reg span::before,.reg span::after{content:"";position:absolute;background:var(--line);}
+.reg span::before{width:22px;height:1px;} .reg span::after{width:1px;height:22px;}
+.reg .a{top:20px;left:20px;} .reg .b{top:20px;right:20px;transform:scaleX(-1);}
+.reg .c{bottom:20px;left:20px;transform:scaleY(-1);} .reg .d{bottom:20px;right:20px;transform:scale(-1,-1);}
+/* brilhos laterais (como na página 4, sem imagem) */
+.sidefx{position:fixed;top:0;bottom:0;width:17%;pointer-events:none;}
+.sidefx.l{left:0;} .sidefx.r{right:0;}
+.sidefx i{position:absolute;background:#e2a24b;border-radius:50%;opacity:0;
+  box-shadow:0 0 8px 2px rgba(226,162,75,.55);animation:tw var(--d,4s) ease-in-out var(--delay,0s) infinite;}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.4);}50%{opacity:.85;transform:scale(1);}}
+.box{max-width:760px;animation:in 1s var(--ease) both;position:relative;z-index:2;}
+@keyframes in{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--clay);margin-bottom:20px;}
+h1{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(38px,7vw,72px);line-height:1.02;margin-bottom:38px;}
+.mail{font-family:var(--display);font-style:italic;font-size:clamp(24px,4.6vw,44px);letter-spacing:.01em;color:var(--ink);
+  text-decoration:none;display:inline-block;position:relative;padding:4px 6px;word-break:break-all;transition:color .3s;}
+.mail:hover{color:var(--clay);}
+.mail svg{position:absolute;left:0;right:0;bottom:-14px;width:100%;height:16px;}
+.mail svg path{fill:none;stroke:var(--clay);stroke-width:2;stroke-linecap:round;
+  stroke-dasharray:600;stroke-dashoffset:600;animation:draw 1.6s var(--ease) .9s forwards;}
+@keyframes draw{to{stroke-dashoffset:0;}}
+.hint{margin-top:34px;font-size:13.5px;color:var(--ink-soft);}
+.back{margin-top:46px;display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--ink);border:1px solid var(--ink);padding:15px 26px;
+  cursor:pointer;background:none;transition:.25s var(--ease);}
+.back:hover{background:var(--ink);color:var(--paper);}
+.back .ar{display:inline-block;transform:scaleX(-1);animation:bob 1.6s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:scaleX(-1) translateX(0);}50%{transform:scaleX(-1) translateX(8px);}}
+.foot{position:fixed;left:0;right:0;bottom:18px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink-soft);}
+@media(max-width:640px){.sidefx{width:11%;} .mail svg{bottom:-10px;}}
+</style>
+</head>
+<body>
+<div class="reg"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span></div>
+<div class="sidefx l" id="fxL"></div>
+<div class="sidefx r" id="fxR"></div>
+<div class="box">
+  <div class="kicker">Contato · E-mail</div>
+  <h1>Escreva para<br>Ana Luiza Val</h1>
+  <a class="mail" href="mailto:analuiza.val.souza@gmail.com">analuiza.val.souza@gmail.com
+    <svg viewBox="0 0 600 16" preserveAspectRatio="none"><path d="M4 10 C 150 2, 300 14, 440 7 C 510 4, 560 9, 596 6"/></svg>
+  </a>
+  <div class="hint">Toque no endereço para abrir seu aplicativo de e-mail, ou copie-o.</div>
+  <br>
+  <button class="back" onclick="if(history.length>1){history.back()}else{location.href='index.html'}">
+    <span class="ar">→</span> Retornar à página anterior
+  </button>
+</div>
+<div class="foot">Ana Luiza Val — Fotografia &amp; Direção Criativa</div>
+<script>
+["fxL","fxR"].forEach(id=>{ const box=document.getElementById(id);
+  for(let n=0;n<16;n++){ const s=document.createElement("i");
+    const sz=(Math.random()*3.2+1.6).toFixed(1);
+    s.style.width=s.style.height=sz+"px";
+    s.style.left=(Math.random()*100).toFixed(2)+"%"; s.style.top=(Math.random()*100).toFixed(2)+"%";
+    s.style.setProperty("--d",(Math.random()*3+2.5).toFixed(2)+"s");
+    s.style.setProperty("--delay",(Math.random()*4).toFixed(2)+"s");
+    box.appendChild(s); }});
+</script>
+</body>
+</html>
